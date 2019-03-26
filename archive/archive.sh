@@ -1,15 +1,15 @@
 #!/bin/sh
 #---------------------------------配置工程信息---------------------------------
 #archive类型 打包hoc 商店store
-archive_type="store"
+archive_type="hoc"
 #工程名字(Target名字)
-target_name="LoveOfPomelo"
+target_name="Youai"
 #配置环境，Release或者Debug
 configuration_type="Release"
 #Bundle ID
 target_bundleID="com.soft.youai"
 #项目地址
-project_path="/Users/01378859/work/company_Jiduo/Vest_Code/LoveOfPomelo"
+project_path="/Users/01378859/work/company_Jiduo/Youai/Code/Youai"
  
 #---------------------------------配置证书信息---------------------------------
 #证书TeamID
@@ -26,7 +26,10 @@ store_pp_name="lcx_ya_pp_store"
 store_pp_identity="DA1E926306210233BA9C75F6707B02BA2D754AC9"
 #蒲公英apiKey
 pgyer_api_key="0ed6b731065e8955baf8c964f478272c"
- 
+#开发者账号用户名_上传商店使用
+developer_username="xxx"
+#开发者账号密码_上传商店使用
+developer_password="xxx"
 #打包plist文件位置
 exportoptions_plist_path=./ExportOptions.plist
 
@@ -65,18 +68,23 @@ xcodebuild clean -xcodeproj ./$target_name/$target_name.xcodeproj -configuration
 
 if [ "${archive_type}" = "hoc" ]
 then
-#4.归档
-xcodebuild -workspace $target_name.xcworkspace -scheme $target_name -configuration $configuration_type -archivePath build/$target_name-adhoc.xcarchive clean archive build CODE_SIGN_IDENTITY="${dis_sign_identity}" PROVISIONING_PROFILE="${hoc_pp_name}" PRODUCT_BUNDLE_IDENTIFIER="${target_bundleID}"
-#5.导出IPA
-xcodebuild -exportArchive -archivePath build/$target_name-adhoc.xcarchive -exportOptionsPlist $exportoptions_plist_path -exportPath build/$target_name-adhoc
-#6.上传到蒲公英
-curl -F "file=@build/${target_name}-adhoc/${target_name}.ipa" -F "_api_key=${pgyer_api_key}" https://www.pgyer.com/apiv2/app/upload
+    #4.归档
+    xcodebuild -workspace $target_name.xcworkspace -scheme $target_name -configuration $configuration_type -archivePath build/$target_name-adhoc.xcarchive clean archive build CODE_SIGN_IDENTITY="${dis_sign_identity}" PROVISIONING_PROFILE="${hoc_pp_name}" PRODUCT_BUNDLE_IDENTIFIER="${target_bundleID}"
+    #5.导出IPA
+    xcodebuild -exportArchive -archivePath build/$target_name-adhoc.xcarchive -exportOptionsPlist $exportoptions_plist_path -exportPath build/$target_name-adhoc
+    #6.上传到蒲公英
+    curl -F "file=@build/${target_name}-adhoc/${target_name}.ipa" -F "_api_key=${pgyer_api_key}" https://www.pgyer.com/apiv2/app/upload
 elif [ "${archive_type}" = "store" ]
 then
-#4.归档
-xcodebuild -workspace $target_name.xcworkspace -scheme $target_name -configuration $configuration_type -archivePath build/$target_name-store.xcarchive clean archive build CODE_SIGN_IDENTITY="${dis_sign_identity}" PROVISIONING_PROFILE="${store_pp_name}" PRODUCT_BUNDLE_IDENTIFIER="${target_bundleID}"
-#5.导出IPA
-xcodebuild -exportArchive -archivePath build/$target_name-store.xcarchive -exportOptionsPlist $exportoptions_plist_path -exportPath build/$target_name-store
+    #4.归档
+    xcodebuild -workspace $target_name.xcworkspace -scheme $target_name -configuration $configuration_type -archivePath build/$target_name-store.xcarchive clean archive build CODE_SIGN_IDENTITY="${dis_sign_identity}" PROVISIONING_PROFILE="${store_pp_name}" PRODUCT_BUNDLE_IDENTIFIER="${target_bundleID}"
+    #5.导出IPA
+    xcodebuild -exportArchive -archivePath build/$target_name-store.xcarchive -exportOptionsPlist $exportoptions_plist_path -exportPath build/$target_name-store
+    #6. 上传到商店
+    altoolPath="/Applications/Xcode.app/Contents/Applications/Application Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Versions/A/Support/altool"
+    "$altoolPath" --validate-app -f build/$target_name-store/$target_name.ipa -u ${developer_username} -p ${developer_password} -t ios --output-format xml
+    "$altoolPath" --upload-app -f build/$target_name-store/$target_name.ipa -u ${developer_username} -p ${developer_password} -t ios --output-format xml
+
 fi
 
 echo "---------------------------------结束打包---------------------------------"
