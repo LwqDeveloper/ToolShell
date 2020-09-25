@@ -13,6 +13,11 @@
 ## 自动打包
     自动打store包，上传到商店
     自动打hoc包，上传蒲公英
+    
+## 动态库Debug Release合并脚本
+    1.File->New->Target->Aggregate
+    2.Build Phases->Target Dependencies->+->SDK
+    3.+->Add Run Script->...
 
 ## 备注
     终端执行脚本./*sh文件如有报错-bash: ./launchImage.sh: Permission denied
