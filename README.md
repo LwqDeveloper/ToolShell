@@ -10,14 +10,27 @@
 ## classNames
     批量修改工程里文件名称。执行环境 Python3
 
-## 自动打包
+## archive 自动打包
     自动打store包，上传到商店
     自动打hoc包，上传蒲公英
     
-## 动态库Debug Release合并脚本
+## tool_framework 
+    动态库Debug Release合并脚本 
     1.File->New->Target->Aggregate
     2.Build Phases->Target Dependencies->+->SDK
     3.+->Add Run Script->...
+    
+## selectorUnrefs 
+    查找未使用的方法 
+
+## imageUnrefs 
+    查找未使用的图片 
+    
+## xcode_tool
+    OC控制台打印输出汉字
+    
+## xcode10_libstdc
+    xcode10增加libstdc++文件类
 
 ## 备注
     终端执行脚本./*sh文件如有报错-bash: ./launchImage.sh: Permission denied
