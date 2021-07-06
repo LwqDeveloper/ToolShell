@@ -31,6 +31,13 @@
     
 ## xcode10_libstdc
     xcode10增加libstdc++文件类
+    
+## Pods-xx-frameworks.sh: /bin/sh: bad interpreter: Operation not premitted
+    stackoverflow: https://stackoverflow.com/questions/38497708/when-i-built-my-app-in-xcode-there-is-an-error-bin-sh-bad-interpreter-operati
+    Reason: If you download project from internet, executable .sh files will be quarantined, and system doesn't allow them to execute.
+    Cure: You should remove extended attributes to make these executables work.
+    In terminal
+    xattr -rc 报错目录
 
 ## 备注
     终端执行脚本./*sh文件如有报错-bash: ./launchImage.sh: Permission denied
