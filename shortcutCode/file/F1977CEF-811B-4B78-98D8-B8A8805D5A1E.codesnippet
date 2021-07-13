@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>pplabel</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>- (UILabel *)&lt;#nameLbl#&gt; {
+    if (!_&lt;#nameLbl#&gt;) {
+        _&lt;#nameLbl#&gt; = [[UILabel alloc] init];
+        _&lt;#nameLbl#&gt;.font = &lt;#font#&gt;;
+        _&lt;#nameLbl#&gt;.textColor = &lt;#color#&gt;;
+    }
+    return _&lt;#nameLbl#&gt;;
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>F1977CEF-811B-4B78-98D8-B8A8805D5A1E</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
+	<key>IDECodeSnippetTitle</key>
+	<string>label</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>

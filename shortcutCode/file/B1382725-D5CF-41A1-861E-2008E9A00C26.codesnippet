@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>ppimageview</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>- (UIImageView *)&lt;#avatarImv#&gt; {
+    if (!_&lt;#avatarImv#&gt;) {
+        _&lt;#avatarImv#&gt; = [[UIImageView alloc] init];
+        _&lt;#avatarImv#&gt;.contentMode = UIViewContentModeScaleAspectFill;
+        _&lt;#avatarImv#&gt;.layer.cornerRadius = &lt;#radiu#&gt;;
+        _&lt;#avatarImv#&gt;.layer.masksToBounds = YES;
+        &lt;#avatarImv#&gt;.userInteractionEnabled = YES;
+        [&lt;#avatarImv#&gt; addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avatarImvTap)]];
+    }
+    return _&lt;#avatarImv#&gt;;
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>B1382725-D5CF-41A1-861E-2008E9A00C26</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
+	<key>IDECodeSnippetTitle</key>
+	<string>imageView</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>

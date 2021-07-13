@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>ppcell</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) { self.selectionStyle = UITableViewCellSelectionStyleNone; self.backgroundColor = [UIColor clearColor];
+
+        [self initViews];
+    }
+    return self;
+}
+
+- (void)initViews { 
+    [self.contentView addSubview:self.avatarImv];
+    [self.avatarImv mas_makeConstraints:^(MASConstraintMaker *make) { 
+        make.left.equalTo(self.contentView).offset(15); 
+        make.right.equalTo(self.contentView).offset(-15); 
+        make.top.equalTo(self.contentView).offset(20); 
+        make.bottom.equalTo(self.contentView).offset(-20); 
+        make.centerY.equalTo(self.contentView); 
+    }]; 
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>A1F2C35B-22B1-4C52-A08D-F373B7A08AFE</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
+	<key>IDECodeSnippetTitle</key>
+	<string>cell</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
