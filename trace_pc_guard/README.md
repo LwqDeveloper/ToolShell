@@ -2,7 +2,7 @@
 	1.clean
 	2.build
 	3.Products -> show in finder
-	4. Intermediates.noindex -> xxx.build -> Debug-iphonesimulator -> xxx.build -> xxx-LinkMap-normal-x86_64
+	4. Intermediates.noindex -> xxx.build -> Debug-iphonesimulator -> xxx.build -> xxx-LinkMap-normal-x86_64.txt
 	5. _# Symbols:_ 部分  对比Build Phases -> Compile Sources部分
 
 ### 2.读取编译顺序 Build Settings -> Other C Flags 
